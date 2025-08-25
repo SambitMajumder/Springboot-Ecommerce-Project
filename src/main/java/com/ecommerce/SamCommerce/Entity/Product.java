@@ -6,11 +6,13 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Product {
 
     @Id
@@ -45,4 +47,9 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Categories categories;
+
+    @ManyToOne
+    @JoinColumn(name = "selling_product_id")
+    public User user;
+
 }
