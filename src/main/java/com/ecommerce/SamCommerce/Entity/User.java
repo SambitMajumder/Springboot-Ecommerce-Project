@@ -35,13 +35,11 @@ public class User {
 
     @Column(name = "email")
     @NotBlank
-    @Size(max = 50)
     @Email
     private String email;
 
     @Column(name = "password")
     @NotBlank
-    @Size(max = 50)
     private String password;
 
     public User(String userName, String email, String password) {
