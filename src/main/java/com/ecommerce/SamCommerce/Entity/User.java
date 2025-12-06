@@ -71,14 +71,10 @@ public class User {
 
     @Getter
     @Setter
-    @ManyToMany(
+    @OneToMany(
+            mappedBy = "user",
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            fetch = FetchType.EAGER
-    )
-    @JoinTable(
-            name = "user_address",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "address_id")
+            orphanRemoval = true
     )
     private List<Address> address = new ArrayList<>();
 
